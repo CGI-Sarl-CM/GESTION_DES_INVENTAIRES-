@@ -9,7 +9,7 @@ namespace MyStoreData.Models
     public partial class DepartementModel : RealmObject
     {
         [PrimaryKey]
-        public ObjectId Id { get; set; } = ObjectId.Empty;
+        public ObjectId Id { get; set; } = ObjectId.GenerateNewId();
         public required string Name { get; set; }
         public   IList<CategoryModel> CategoryList { get;}
         public IList<ItemModel> ItemList { get; }

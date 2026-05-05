@@ -9,7 +9,7 @@ namespace MyStoreData.Models
     public partial class CategoryModel : RealmObject
     {
         [PrimaryKey]
-        public ObjectId Id { get; set; }= ObjectId.Empty;
+        public ObjectId Id { get; set; }=  ObjectId.GenerateNewId();
         public required string Name { get; set; }
         public DateTimeOffset DateCreated { get; set; } = DateTimeOffset.UtcNow;
         public IList<ItemModel> Items { get; }
