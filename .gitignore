@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/GESTION_DES_INVENTAIRES-.slnx/FileContentIndex
+/.vs
+/Mystore/Mystore/bin/Debug/net10.0
+/Mystore/Mystore/obj
