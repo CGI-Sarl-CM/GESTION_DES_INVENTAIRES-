@@ -1,0 +1,121 @@
+﻿using Mystore.ViewModel;
+using Mystore.WinUI.Utilities;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Text;
+
+namespace Mystore.WinUI.Views.Maui;
+
+
+public partial class MainMauiWindow : Microsoft.Maui.Controls.Window
+{
+
+    public BaseViewModelWin MyViewModel { get; set; }
+    public IAppUtil AppUtil { get; }
+
+    public MainMauiWindow(BaseViewModelWin vm, IAppUtil appUtil)
+    {
+
+        vm.MainMAUIWindow = this;
+        Page = appUtil.GetShell();
+        MyViewModel = vm;
+        AppUtil = appUtil;
+        BindingContext = vm;
+        this.Height = 600;
+        this.Width = 600;
+    }
+    public Microsoft.Maui.Controls.Page CurrentPage => this.Page as Microsoft.Maui.Controls.Page ?? throw new InvalidOperationException("Current Page is not a valid Page.");
+
+
+
+    protected async override void OnDestroying()
+    {
+
+
+    }
+
+    public event EventHandler? WindowActivated;
+    int count;
+    protected override async void OnActivated()
+    {
+        count++;
+        try
+        {
+
+            base.OnActivated();
+
+            var nativeElement = this.Page?.Handler?.PlatformView as Microsoft.UI.Xaml.UIElement;
+            if (nativeElement != null)
+            {
+                nativeElement.PointerPressed += OnGlobalPointerPressed;
+            }
+        }
+        catch (Exception ex)
+        {
+
+            Debug.WriteLine($"{ex.Message}");
+        }
+    }
+    protected override void OnBackgrounding(IPersistedState state)
+    {
+        base.OnBackgrounding(state);
+    }
+
+    protected override void OnDeactivated()
+    {
+        base.OnDeactivated();
+        var nativeElement = this.Page?.Handler?.PlatformView as Microsoft.UI.Xaml.UIElement;
+        if (nativeElement != null)
+        {
+            nativeElement.PointerPressed -= OnGlobalPointerPressed;
+        }
+        //PlatUtils.ToggleFullScreenMode(false, PlatUtils.AppWinPresenter);
+        //PlatUtils.ShowWindow(PlatUtils.DimmerHandle, 0); // Hide window (SW_HIDE)
+    }
+    private async void OnGlobalPointerPressed(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
+    {
+        var properties = e.GetCurrentPoint(sender as Microsoft.UI.Xaml.UIElement).Properties;
+
+
+        if (properties.IsXButton1Pressed)
+        {
+            // Handle Back Navigation
+            await Shell.Current.GoToAsync("..");
+        }
+        else if (properties.IsXButton2Pressed)
+        {
+
+        }
+    }
+    protected override void OnCreated()
+    {
+
+        base.OnCreated();
+        var nativeWindow = PlatUtils.GetNativeWindowFromMAUIWindow(this);
+        PlatUtils.MoveAndResizeCenter(nativeWindow, new Windows.Graphics.SizeInt32(600, 766));
+        MinimumHeight = 766;
+        MaximumWidth = 600;
+        MinimumWidth = 600;
+
+#if DEBUG
+        this.Title = $"{MyViewModel?.AppTitle} Debug {BaseViewModel.CurrentAppVersion}  {BaseViewModel.CurrentAppStage}";
+
+#elif RELEASE
+        this.Title = $"{MyViewModel?.AppTitle} {BaseViewModel.CurrentAppVersion}  {BaseViewModel.CurrentAppStage}";
+#endif
+
+
+        if (MyViewModel is null)
+        {
+            return;
+        }
+
+
+    }
+    protected override void OnStopped()
+    {
+        base.OnStopped();
+    }
+
+}

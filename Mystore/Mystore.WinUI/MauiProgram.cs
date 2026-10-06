@@ -1,4 +1,6 @@
-﻿namespace Mystore.WinUI
+﻿using Mystore.WinUI.Services;
+
+namespace Mystore.WinUI
 {
     public static class MauiProgram
     {
@@ -8,7 +10,9 @@
 
             builder
                 .UseSharedMauiApp();
-
+            builder
+                .Services.AddSingleton<IAppUtil, AppUtil>();
+                builder.Services.AddSingleton<BaseViewModelWin>();
             return builder.Build();
         }
     }
