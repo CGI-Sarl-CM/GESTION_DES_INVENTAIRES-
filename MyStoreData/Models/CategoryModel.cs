@@ -4,14 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyStoreData.Models
+namespace MyStoreData.Models;
+
+public partial class CategoryModel : RealmObject
 {
-    public partial class CategoryModel : RealmObject
-    {
-        [PrimaryKey]
-        public ObjectId Id { get; set; }=  ObjectId.GenerateNewId();
-        public required string Name { get; set; }
-        public DateTimeOffset DateCreated { get; set; } = DateTimeOffset.UtcNow;
-        public IList<ItemModel> Items { get; }
-    }
+    [PrimaryKey]
+    public ObjectId Id { get; set; }=  ObjectId.GenerateNewId();
+    public required string Name { get; set; }
+    public DateTimeOffset DateCreated { get; set; } = DateTimeOffset.UtcNow;
+    [Backlink(nameof(ItemModel.Category))]
+    public IQueryable<ItemModel> Items { get; }
 }
