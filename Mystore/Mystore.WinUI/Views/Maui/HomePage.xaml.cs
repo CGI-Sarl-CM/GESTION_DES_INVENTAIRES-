@@ -1,4 +1,4 @@
-namespace Mystore.WinUI.Views.Maui;
+namespace CGIERP.WinUI.Views.Maui;
 
 public partial class HomePage : ContentPage
 {

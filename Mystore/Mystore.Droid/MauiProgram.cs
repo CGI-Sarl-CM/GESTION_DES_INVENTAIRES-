@@ -1,4 +1,4 @@
-﻿namespace Mystore.Droid
+﻿namespace CGIERP.Droid
 {
     public static class MauiProgram
     {

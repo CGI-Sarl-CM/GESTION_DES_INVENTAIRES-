@@ -1,7 +1,7 @@
-﻿using MyStoreData.Enums;
-using MyStoreData.Models.EmbeddedObjects;
+﻿using CGIERPData.Enums;
+using CGIERPData.Models.EmbeddedObjects;
 
-namespace MyStoreData.Models.QHSEModels;
+namespace CGIERPData.Models.QHSEModels;
 
 public partial class QhseAssignmentModel : RealmObject
 {

@@ -1,9 +1,9 @@
 ﻿using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
-using Mystore.ViewModel;
-using MyStoreData;
+using CGIERP.ViewModel;
+using CGIERPData;
 
-namespace Mystore;
+namespace CGIERP;
 
 public static class MauiProgramExtensions
 {

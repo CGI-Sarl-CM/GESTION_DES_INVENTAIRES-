@@ -1,7 +1,7 @@
 using Android.App;
 using Android.Runtime;
 
-namespace Mystore.Droid
+namespace CGIERP.Droid
 {
     [Application]
     public class MainApplication : MauiApplication

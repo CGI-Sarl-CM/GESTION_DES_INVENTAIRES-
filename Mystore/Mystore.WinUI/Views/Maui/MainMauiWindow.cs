@@ -1,11 +1,11 @@
-﻿using Mystore.ViewModel;
-using Mystore.WinUI.Utilities;
+﻿using CGIERP.ViewModel;
+using CGIERP.WinUI.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 
-namespace Mystore.WinUI.Views.Maui;
+namespace CGIERP.WinUI.Views.Maui;
 
 
 public partial class MainMauiWindow : Microsoft.Maui.Controls.Window

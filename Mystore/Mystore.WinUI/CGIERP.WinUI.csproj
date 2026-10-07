@@ -4,7 +4,7 @@
 		<OutputType>WinExe</OutputType>
 		<TargetFramework>net10.0-windows10.0.19041.0</TargetFramework>
 		<TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
-		<RootNamespace>Mystore.WinUI</RootNamespace>
+		<RootNamespace>CGIERP.WinUI</RootNamespace>
 		<ApplicationManifest>app.manifest</ApplicationManifest>
 		<Platforms>x86;x64;ARM64</Platforms>
 		<RuntimeIdentifiers>win-x86;win-x64;win-arm64</RuntimeIdentifiers>
@@ -46,9 +46,7 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.6" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\Mystore\Mystore.csproj" />
-	</ItemGroup>
+	
 
 	<ItemGroup>
 		<!-- Make sure all image assets to be in the root of the package to match the other platforms -->
@@ -74,6 +72,9 @@
 	  <MauiXaml Include="Views\Maui\HomePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Mystore\CGRIERP.csproj" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Page Update="Views\Winui\MainWindowWinUI.xaml">

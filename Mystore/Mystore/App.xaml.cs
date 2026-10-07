@@ -1,7 +1,7 @@
-﻿using Mystore.Interfaces;
-using Mystore.ViewModel;
+﻿using CGIERP.Interfaces;
+using CGIERP.ViewModel;
 
-namespace Mystore;
+namespace CGIERP;
 
 public partial class App : Application
 {

@@ -1,4 +1,4 @@
-﻿namespace CGIERPData
+﻿namespace CGIERP.Utilities
 {
     public class Class1
     {

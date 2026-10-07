@@ -1,11 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using Mystore.ViewModel;
-using MyStoreData;
+using CGIERP.ViewModel;
+using CGIERPData;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Mystore.WinUI.ViewModels;
+namespace CGIERP.WinUI.ViewModels;
 
 public partial class BaseViewModelWin : BaseViewModel
 {

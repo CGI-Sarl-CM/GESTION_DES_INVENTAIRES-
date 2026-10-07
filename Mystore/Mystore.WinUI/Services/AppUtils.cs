@@ -1,11 +1,11 @@
-﻿global using Mystore.Interfaces;
-global using Mystore.WinUI.ViewModels;
-using Mystore.WinUI.Views.Maui;
+﻿global using CGIERP.Interfaces;
+global using CGIERP.WinUI.ViewModels;
+using CGIERP.WinUI.Views.Maui;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Mystore.WinUI.Services;
+namespace CGIERP.WinUI.Services;
 
 public class AppUtil : IAppUtil
 {

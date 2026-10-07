@@ -1,13 +1,13 @@
 ﻿global using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using MyStoreData;
-using MyStoreData.Models;
+using CGIERPData;
+using CGIERPData.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 
-namespace Mystore.ViewModel
+namespace CGIERP.ViewModel
 {
     
   public partial class ConnexionViewModel :ObservableObject

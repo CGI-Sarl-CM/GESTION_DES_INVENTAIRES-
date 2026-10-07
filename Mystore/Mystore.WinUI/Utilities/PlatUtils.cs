@@ -13,7 +13,7 @@ using Compositor = Microsoft.UI.Composition.Compositor;
 using FlyoutBase = Microsoft.UI.Xaml.Controls.Primitives.FlyoutBase;
 
 using ImageSource = Microsoft.Maui.Controls.ImageSource;
-namespace Mystore.WinUI.Utilities;
+namespace CGIERP.WinUI.Utilities;
 
 using Microsoft.UI;
 using Microsoft.UI.Windowing;
@@ -22,7 +22,7 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.VisualBasic.FileIO;
 using Microsoft.Windows.AppNotifications;
 using Microsoft.Windows.AppNotifications.Builder;
-using Mystore.WinUI.Views.Winui;
+using CGIERP.WinUI.Views.Winui;
 using System.Runtime.InteropServices;
 using Windows.Graphics;
 using WinRT.Interop;

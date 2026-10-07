@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:Mystore.ViewModel"
+             xmlns:vm="clr-namespace:CGIERP.ViewModel"
              x:DataType="vm:ConnexionViewModel"
-             x:Class="Mystore.MainPage">
+             x:Class="CGIERP.MainPage">
 
     <ScrollView BackgroundColor="Pink">
         <VerticalStackLayout Spacing="10">

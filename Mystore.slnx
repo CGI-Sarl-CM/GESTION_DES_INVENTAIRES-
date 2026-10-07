@@ -1,10 +1,11 @@
 <Solution>
-  <Project Path="Mystore/Mystore.Droid/Mystore.Droid.csproj">
+  <Project Path="CGIERP.Utilities/CGIERP.Utilities.csproj" Id="1b082c1f-4b04-44fc-91aa-1f4c46abe98d" />
+  <Project Path="Mystore/Mystore.Droid/CGIERP.Droid.csproj">
     <Deploy />
   </Project>
-  <Project Path="Mystore/Mystore.WinUI/Mystore.WinUI.csproj">
+  <Project Path="Mystore/Mystore.WinUI/CGIERP.WinUI.csproj">
     <Platform Project="x64" />
   </Project>
-  <Project Path="Mystore/Mystore/Mystore.csproj" />
-  <Project Path="MyStoreData/MyStoreData.csproj" Id="582d0f5a-bd84-4afa-9db2-5357de561ff7" />
+  <Project Path="Mystore/Mystore/CGRIERP.csproj" />
+  <Project Path="MyStoreData/CGIERPData.csproj" Id="582d0f5a-bd84-4afa-9db2-5357de561ff7" />
 </Solution>

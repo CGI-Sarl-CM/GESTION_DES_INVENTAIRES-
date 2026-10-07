@@ -1,4 +1,4 @@
-namespace Mystore.WinUI;
+namespace CGIERP.WinUI;
 
 public partial class MainShell : Shell
 {

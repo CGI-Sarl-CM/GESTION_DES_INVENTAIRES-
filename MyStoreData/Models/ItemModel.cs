@@ -1,10 +1,10 @@
 ﻿global using MongoDB.Bson;
 global using Realms;
-using MyStoreData.Enums;
-using MyStoreData.Models.EmbeddedObjects;
-using MyStoreData.Models.QHSEModels;
+using CGIERPData.Enums;
+using CGIERPData.Models.EmbeddedObjects;
+using CGIERPData.Models.QHSEModels;
 
-namespace MyStoreData.Models;
+namespace CGIERPData.Models;
 
 public partial class ItemModel : RealmObject
 {

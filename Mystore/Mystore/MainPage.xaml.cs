@@ -1,7 +1,7 @@
-﻿using Mystore.ViewModel;
+﻿using CGIERP.ViewModel;
 using System.Diagnostics;
 
-namespace Mystore;
+namespace CGIERP;
 
 public partial class MainPage : ContentPage
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyStoreData.Enums;
+namespace CGIERPData.Enums;
 
 public enum VerificationStatus
 {

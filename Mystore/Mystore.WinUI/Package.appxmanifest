@@ -6,12 +6,12 @@
   xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
   IgnorableNamespaces="uap rescap">
 
-  <Identity Name="com.companyname.mystore" Publisher="CN=User Name" Version="1.0.0.0" />
+  <Identity Name="com.companyname.CGIERP" Publisher="CN=User Name" Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="F1CAC9DC-B61A-4CD9-BAD7-396748289100" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>Mystore</DisplayName>
+    <DisplayName>CGIERP</DisplayName>
     <PublisherDisplayName>User Name</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -28,8 +28,8 @@
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="Mystore"
-        Description="Mystore"
+        DisplayName="CGIERP"
+        Description="CGIERP"
         BackgroundColor="transparent"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png">

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyStoreData.Models.EmbeddedObjects;
+namespace CGIERPData.Models.EmbeddedObjects;
 
 
 // Used in Assignments

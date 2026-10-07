@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyStoreData.Models;
+namespace CGIERPData.Models;
 
 public partial class CategoryModel : RealmObject
 {

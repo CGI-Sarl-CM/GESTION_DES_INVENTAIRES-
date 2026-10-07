@@ -1,4 +1,4 @@
-﻿namespace Mystore
+﻿namespace CGIERP
 {
     public partial class AppShell : Shell
     {

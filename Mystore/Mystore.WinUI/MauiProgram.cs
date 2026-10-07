@@ -1,6 +1,6 @@
-﻿using Mystore.WinUI.Services;
+﻿using CGIERP.WinUI.Services;
 
-namespace Mystore.WinUI
+namespace CGIERP.WinUI
 {
     public static class MauiProgram
     {

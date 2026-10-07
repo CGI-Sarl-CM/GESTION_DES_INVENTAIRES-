@@ -1,11 +1,11 @@
-﻿using MyStoreData;
-using MyStoreData.Enums;
-using MyStoreData.Models;
-using MyStoreData.Models.EmbeddedObjects;
-using MyStoreData.Models.QHSEModels;
+﻿using CGIERPData;
+using CGIERPData.Enums;
+using CGIERPData.Models;
+using CGIERPData.Models.EmbeddedObjects;
+using CGIERPData.Models.QHSEModels;
 using System;
 
-namespace Mystore.ViewModel;
+namespace CGIERP.ViewModel;
 
 public partial class QhseViewModel : BaseViewModel
 {
