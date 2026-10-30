@@ -14,11 +14,13 @@ public partial class App : Application
     IAppUtil AppUtilImple;
     BaseViewModel MyViewModel;
 
+
+
     protected override Window CreateWindow(IActivationState? activationState)
     {
 
 
-        var win = AppUtilImple.LoadWindow();
+    var win = AppUtilImple.LoadWindow();
         return win;
     }
 }

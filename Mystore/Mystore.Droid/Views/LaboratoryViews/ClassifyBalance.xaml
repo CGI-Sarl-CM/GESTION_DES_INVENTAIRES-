@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CGIERP.Views.LaboratoryViews.ClassifyBalance"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mdc="clr-namespace:Material.Components.Maui;assembly=Material.Components.Maui"
+    xmlns:syncf="http://schemas.syncfusion.com/maui/toolkit"
+    xmlns:vm="clr-namespace:CGIERP.ViewModel;assembly=CGRIERP"
+    Title="Classifier une Balance"
+    x:DataType="vm:LaboratoryViewModel">
+
+    <Grid>
+
+        <VerticalStackLayout HorizontalOptions="Center" Spacing="15">
+
+
+
+            <VerticalStackLayout Spacing="10">
+
+                <syncf:SfSegmentedControl
+                    x:Name="MassSegControlMaxWeight"
+                    EnableRippleEffect="True"
+                    ItemsSource="{Binding MassUnitsCollection}"
+                    SelectedIndex="1"
+                    SelectionChanged="MassSegControlMaxWeight_SelectionChanged"
+                    SelectionMode="Single"
+                    ShowSeparator="True">
+
+                    <syncf:SfSegmentedControl.SegmentTemplate>
+                        <DataTemplate x:DataType="syncf:SfSegmentItem">
+                            <Label
+                                HorizontalTextAlignment="Center"
+                                Text="{Binding Text}"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+                        </DataTemplate>
+                    </syncf:SfSegmentedControl.SegmentTemplate>
+                </syncf:SfSegmentedControl>
+                <mdc:TextField
+                    x:Name="MaxWeightTxt"
+                    LabelText="Portee Max"
+                    SupportingText=""
+                    Text="{Binding MaximumWeight, Mode=TwoWay}" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+
+                <syncf:SfSegmentedControl
+                    x:Name="MassSegControlEchelon"
+                    EnableRippleEffect="True"
+                    ItemsSource="{Binding MassUnitsCollection}"
+                    SelectedIndex="1"
+                    SelectionChanged="MassSegControlEchelon_SelectionChanged"
+                    SelectionMode="Single"
+                    ShowSeparator="True">
+
+                    <syncf:SfSegmentedControl.SegmentTemplate>
+                        <DataTemplate x:DataType="syncf:SfSegmentItem">
+                            <Label
+                                HorizontalTextAlignment="Center"
+                                Text="{Binding Text}"
+                                TextColor="White"
+                                VerticalTextAlignment="Center" />
+                        </DataTemplate>
+                    </syncf:SfSegmentedControl.SegmentTemplate>
+                </syncf:SfSegmentedControl>
+                <mdc:TextField
+                    x:Name="Echelon"
+                    InputType="SingleLine"
+                    LabelText="Echelon de verification"
+                    SupportingText=""
+                    Text="{Binding EchelonVerif, Mode=TwoWay}" />
+            </VerticalStackLayout>
+            <syncf:SfSegmentedControl
+                x:Name="TypeOfVerification"
+                EnableRippleEffect="True"
+                HorizontalOptions="Center"
+                ItemsSource="{Binding VerificationsTypeCollection}"
+                SelectedIndex="0"
+                SelectionChanged="TypeOfVerification_SelectionChanged"
+                SelectionMode="Single"
+                ShowSeparator="True">
+
+                <syncf:SfSegmentedControl.SegmentTemplate>
+                    <DataTemplate x:DataType="syncf:SfSegmentItem">
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Text="{Binding Text}"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+                    </DataTemplate>
+                </syncf:SfSegmentedControl.SegmentTemplate>
+            </syncf:SfSegmentedControl>
+
+            <mdc:TextField
+                x:Name="MassValueText"
+                InputType="SingleLine"
+                LabelText="Valeure de la Masse"
+                SupportingText=""
+                Text="{Binding MassValue, Mode=TwoWay}" />
+
+            <mdc:Button
+                x:Name="ClassifyBtn"
+                Command="{Binding DetermineNumberOfEchelonsCommand}"
+                LongPressed="ClassifyBtn_LongPressed"
+                Text="Classer" />
+
+            <mdc:Card>
+                <mdc:Card.Content>
+                    <Label
+                        x:Name="ClassLabel"
+                        FontSize="24"
+                        Text="{Binding CurrentBalance.ClassNumber, Mode=TwoWay}" />
+                </mdc:Card.Content>
+            </mdc:Card>
+        </VerticalStackLayout>
+
+        <syncf:SfPopup x:Name="ManualClassificationPopup" HeaderTitle="Classifier la balance">
+            <syncf:SfPopup.ContentTemplate>
+                <DataTemplate>
+                    <mdc:ComboBox
+                        x:Name="ManualClassificationCmbBox"
+                        LabelText="Choisir la classe"
+                        SelectedChanged="ManualClassificationCmbBox_SelectedChanged">
+                        <mdc:ComboBox.Items>
+                            <mdc:MenuItem Text="1" />
+                            <mdc:MenuItem Text="2" />
+                            <mdc:MenuItem Text="3" />
+                            <mdc:MenuItem Text="4" />
+                        </mdc:ComboBox.Items>
+                    </mdc:ComboBox>
+                </DataTemplate>
+            </syncf:SfPopup.ContentTemplate>
+        </syncf:SfPopup>
+    </Grid>
+</ContentPage>

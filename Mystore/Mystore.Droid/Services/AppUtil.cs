@@ -13,11 +13,9 @@ public class AppUtil : IAppUtil
     {
 
         BaseVMAnd = baseViewModelWin;
-        //this.MainMAUIWin ??= baseViewModelWin.MainMAUIWindow;
-
+        
     }
-    Microsoft.Maui.Controls.Window? MainMAUIWin;
-    Window? MainWindowWinUI;
+
 
     public Shell GetShell()
     {
@@ -25,23 +23,10 @@ public class AppUtil : IAppUtil
     }
     public Microsoft.Maui.Controls.Window LoadWindow()
     {
-
-        //if (this.MainWindowWinUI is null)
-        //{
-        //    //dimmerWinUI = winUIWindowMgrService.GetOrCreateUniqueWindow<DimmerWin>(BaseViewModelWin, () => new DimmerWin());
-
-        //    //UiThreads.InitializeWinUIDispatcher(dimmerWinUI!.DispatcherQueue);
-        //}
-        //else
-        //{
-        //    //UiThreads.InitializeWinUIDispatcher(dimmerWinUI.DispatcherQueue);
-        //    MainMAUIWin = BaseVMWin.MainMAUIWindow;
-
-        //}
-
-        //MainMAUIWin ??= new MainMauiWindow(BaseVMWin, this);
-        //return MainMAUIWin;
+        Window window = new Window();
+        window.Page = GetShell();
+        return window;
     }
-    public BaseViewModelWi?n BaseVMWin { get; set; }
+
     public BaseViewModelAndroid BaseVMAnd { get; }
 }

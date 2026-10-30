@@ -1,4 +1,6 @@
-﻿namespace CGIERP.Droid
+﻿using CGIERP.Services;
+
+namespace CGIERP.Droid
 {
     public static class MauiProgram
     {
@@ -8,7 +10,9 @@
 
             builder
                 .UseSharedMauiApp();
-
+            builder
+                .Services.AddSingleton<IAppUtil, AppUtil>();
+            builder.Services.AddSingleton<BaseViewModelAndroid>();
             return builder.Build();
         }
     }

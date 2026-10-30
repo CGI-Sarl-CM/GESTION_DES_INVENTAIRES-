@@ -65,4 +65,14 @@ public partial class HomePage : ContentPage
     {
 
     }
+
+    private void GoToQHSEBtn_Clicked(object sender, TappedEventArgs e)
+    {
+
+    }
+
+    private async void GoToLaboratory_Clicked(object sender, TappedEventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(LabOverView));
+    }
 }

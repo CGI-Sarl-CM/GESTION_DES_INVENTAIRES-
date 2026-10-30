@@ -10,7 +10,10 @@ public partial class LabOverView : ContentPage
     }
     public LaboratoryViewModel MyViewModel { get; }
 
-    private async void Button_Clicked(object sender, TouchEventArgs e)
+    
+
+
+    private async void Button_Clicked(object sender, TappedEventArgs e)
     {
         await Shell.Current.GoToAsync(nameof(ClassifyBalance));
     }

@@ -6,29 +6,81 @@
     xmlns:mdc="clr-namespace:Material.Components.Maui;assembly=Material.Components.Maui"
     xmlns:syncf="http://schemas.syncfusion.com/maui/toolkit"
     Title="CGI ERP"
-    BackgroundColor="Transparent">
-    <ScrollView>
+    BackgroundColor="#F4F6F8">
+    <!--  Soft premium background  -->
 
-        <mdc:WrapLayout
-            HorizontalOptions="Center"
-            Orientation="Vertical"
-            VerticalSpacing="15">
-            <mdc:Card>
-                <mdc:Button
-                    x:Name="GoToQHSEBtn"
-                    Clicked="GoToQHSEBtn_Clicked"
-                    Text="QHSE" />
-            </mdc:Card>
-            <mdc:Card>
+    <ScrollView Padding="20">
+        <VerticalStackLayout Spacing="25">
 
+            <!--  Header Section  -->
+            <VerticalStackLayout Spacing="5">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="28"
+                    Text="Bienvenue dans CGI ERP"
+                    TextColor="#2C3E50" />
+                <Label
+                    FontSize="14"
+                    Text="Sélectionnez un module pour commencer"
+                    TextColor="#7F8C8D" />
+            </VerticalStackLayout>
 
-                <mdc:Button
-                    x:Name="GoToLaboratory"
-                    Clicked="GoToLaboratory_Clicked"
-                    Text="Laboratory" />
-            </mdc:Card>
+            <!--  Dashboard Cards  -->
+            <Grid
+                ColumnDefinitions="*, *"
+                ColumnSpacing="15"
+                RowDefinitions="Auto, Auto"
+                RowSpacing="15">
 
-        </mdc:WrapLayout>
+                <!--  QHSE Card  -->
+                <mdc:Card
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HeightRequest="120">
+                    <mdc:Card.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="GoToQHSEBtn_Clicked" />
+                    </mdc:Card.GestureRecognizers>
+                    <VerticalStackLayout
+                        HorizontalOptions="Center"
+                        Spacing="10"
+                        VerticalOptions="Center">
+                        <Label
+                            FontSize="32"
+                            HorizontalOptions="Center"
+                            Text="🛡️" />
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            Text="QHSE"
+                            TextColor="#34495E" />
+                    </VerticalStackLayout>
+                </mdc:Card>
 
+                <!--  Laboratory Card  -->
+                <mdc:Card
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    HeightRequest="120">
+                    <mdc:Card.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="GoToLaboratory_Clicked" />
+                    </mdc:Card.GestureRecognizers>
+                    <VerticalStackLayout
+                        HorizontalOptions="Center"
+                        Spacing="10"
+                        VerticalOptions="Center">
+                        <Label
+                            FontSize="32"
+                            HorizontalOptions="Center"
+                            Text="🔬" />
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            Text="Laboratoire"
+                            TextColor="#34495E" />
+                    </VerticalStackLayout>
+                </mdc:Card>
+
+            </Grid>
+        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

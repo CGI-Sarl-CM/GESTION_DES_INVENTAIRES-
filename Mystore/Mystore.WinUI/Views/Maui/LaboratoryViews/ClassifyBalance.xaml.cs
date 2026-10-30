@@ -72,10 +72,8 @@ public partial class ClassifyBalance : ContentPage
 
     private void TypeOfVerification_SelectionChanged(object sender, Syncfusion.Maui.Toolkit.SegmentedControl.SelectionChangedEventArgs e)
     {
-        var selItem = e.NewIndex;
-        if(selItem is not null)
+        if (e.NewIndex is int selItemIndx)
         {
-            var selItemIndx = (int)selItem;
             MyViewModel.SelectedVerificationsType = MyViewModel.VerificationsTypeCollection[selItemIndx];
         }
     }
@@ -89,13 +87,13 @@ public partial class ClassifyBalance : ContentPage
 
     private void ManualClassificationCmbBox_SelectedChanged(object sender, SelectedItemChangedEventArgs e)
     {
-        var selItem = e.SelectedItem as Material.Components.Maui.MenuItem;
-        if (selItem is null)
+        if (e.SelectedItem is Material.Components.Maui.MenuItem selItem)
         {
-            return;
+            if (int.TryParse(selItem.Text, out int newClass))
+            {
+                MyViewModel.CurrentBalance.ClassNumber = newClass;
+            }
         }
-        var newClass = selItem.Text ;
-        MyViewModel.CurrentBalance.ClassNumber = int.Parse(newClass);
     }
 
     private void ClassifyBtn_LongPressed(object sender, TouchEventArgs e)
@@ -111,15 +109,17 @@ public partial class ClassifyBalance : ContentPage
 
     private void MassSegControlMaxWeight_SelectionChanged(object sender, Syncfusion.Maui.Toolkit.SegmentedControl.SelectionChangedEventArgs e)
     {
-        var SelItem = MyViewModel.MassUnitsCollection[(int)e.NewIndex!];
-
-        MyViewModel.SelectedPMaxUnit = SelItem;
+        if (e.NewIndex is int selItemIndx)
+        {
+            MyViewModel.SelectedPMaxUnit = MyViewModel.MassUnitsCollection[selItemIndx];
+        }
     }
 
     private void MassSegControlEchelon_SelectionChanged(object sender, Syncfusion.Maui.Toolkit.SegmentedControl.SelectionChangedEventArgs e)
     {
-        var SelItem = MyViewModel.MassUnitsCollection[(int)e.NewIndex!];
-
-        MyViewModel.SelectedEchelonUnit = SelItem;
+        if (e.NewIndex is int selItemIndx)
+        {
+            MyViewModel.SelectedEchelonUnit = MyViewModel.MassUnitsCollection[selItemIndx];
+        }
     }
 }
