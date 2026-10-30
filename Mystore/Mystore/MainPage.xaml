@@ -1,24 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:CGIERP.ViewModel"
-             x:DataType="vm:ConnexionViewModel"
-             x:Class="CGIERP.MainPage">
+<ContentPage
+    x:Class="CGIERP.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:CGIERP.ViewModel"
+    x:DataType="vm:ConnexionViewModel">
 
     <ScrollView BackgroundColor="Pink">
         <VerticalStackLayout Spacing="10">
-            <Label Text="Connexion" FontAttributes="Bold" FontSize="23"/>
+            <Label
+                FontAttributes="Bold"
+                FontSize="23"
+                Text="Connexion" />
             <Border StrokeShape="10">
-                <Entry Placeholder="enter your name" Text="{Binding User}"/>
+                <Entry Placeholder="enter your name" Text="{Binding User}" />
             </Border>
 
-            <Border StrokeShape="10" >
-                <Entry Placeholder="enter your password" Text="{Binding Password}"/>
+            <Border StrokeShape="10">
+                <Entry Placeholder="enter your password" Text="{Binding Password}" />
             </Border>
-            
+
             <VerticalStackLayout Spacing="10">
-                <Button Text="Connect" Command="{Binding ConnectCommand}" CornerRadius="10" WidthRequest="250"/>
-                <Button Text=" pas de compte ? Cliquez ici " CornerRadius="10" WidthRequest="250"/>
+                <Button
+                    Command="{Binding ConnectCommand}"
+                    CornerRadius="10"
+                    Text="Connect"
+                    WidthRequest="250" />
+                <Button
+                    CornerRadius="10"
+                    Text=" pas de compte ? Cliquez ici "
+                    WidthRequest="250" />
 
             </VerticalStackLayout>
         </VerticalStackLayout>

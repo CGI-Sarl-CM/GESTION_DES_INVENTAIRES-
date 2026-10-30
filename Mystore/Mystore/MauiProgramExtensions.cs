@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Logging;
 using CGIERP.ViewModel;
 using CGIERPData;
+using Material.Components.Maui.Extensions;
+using Syncfusion.Maui.Toolkit.Hosting;
 
 namespace CGIERP;
 
@@ -11,7 +13,12 @@ public static class MauiProgramExtensions
     {
         builder
             .UseMauiApp<App>()
-            .UseMauiCommunityToolkit()
+            .ConfigureSyncfusionToolkit()
+            .UseMaterialComponents()
+            .UseMauiCommunityToolkit( op=>
+            {
+
+            })
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -25,6 +32,7 @@ public static class MauiProgramExtensions
         builder.Services.AddSingleton<ConnexionViewModel>();
         builder.Services.AddSingleton<BaseViewModel>();
         builder.Services.AddSingleton<QhseViewModel>();
+        builder.Services.AddSingleton<LaboratoryViewModel>();
         builder.Services.AddSingleton<MainPage>();
 
         return builder;

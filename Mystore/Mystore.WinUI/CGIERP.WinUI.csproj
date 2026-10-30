@@ -33,17 +33,21 @@
 	<ItemGroup>
 	  <None Remove="MainShell.xaml" />
 	  <None Remove="Views\Maui\HomePage.xaml" />
+	  <None Remove="Views\Maui\LaboratoryViews\ClassifyBalance.xaml" />
+	  <None Remove="Views\Maui\LaboratoryViews\LabOverView.xaml" />
 	  <None Remove="Views\Winui\MainWindowWinUI.xaml" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Page Remove="MainShell.xaml" />
 	  <Page Remove="Views\Maui\HomePage.xaml" />
+	  <Page Remove="Views\Maui\LaboratoryViews\ClassifyBalance.xaml" />
+	  <Page Remove="Views\Maui\LaboratoryViews\LabOverView.xaml" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.Maui.Controls" Version="10.0.51" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.6" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="10.0.120" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.14" />
 	</ItemGroup>
 
 	
@@ -70,6 +74,12 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Include="Views\Maui\HomePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Include="Views\Maui\LaboratoryViews\ClassifyBalance.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Include="Views\Maui\LaboratoryViews\LabOverView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

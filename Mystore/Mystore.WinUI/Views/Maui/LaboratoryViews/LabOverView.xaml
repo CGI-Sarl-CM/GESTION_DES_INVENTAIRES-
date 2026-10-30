@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="CGIERP.WinUI.Views.Maui.LaboratoryViews.LabOverView"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:mdc="clr-namespace:Material.Components.Maui;assembly=Material.Components.Maui"
+    xmlns:syncf="http://schemas.syncfusion.com/maui/toolkit"
+    Title="Laboratoire">
+
+    <VerticalStackLayout Spacing="10">
+        <mdc:Card>
+            <mdc:Card.Content>
+                <mdc:Button BackgroundColor="Transparent" Clicked="Button_Clicked" Text="Classifier une Balance" />
+            </mdc:Card.Content>
+        </mdc:Card>
+    </VerticalStackLayout>
+</ContentPage>
