@@ -89,7 +89,7 @@ public partial class ClassifyBalance : ContentPage
 
     private void ManualClassificationCmbBox_SelectedChanged(object sender, SelectedItemChangedEventArgs e)
     {
-        var selItem = e.SelectedItem as MenuItem;
+        var selItem = e.SelectedItem as Material.Components.Maui.MenuItem;
         if (selItem is null)
         {
             return;

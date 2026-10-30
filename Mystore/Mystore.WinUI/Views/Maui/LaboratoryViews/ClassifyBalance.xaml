@@ -11,7 +11,7 @@
 
     <Grid>
 
-        <VerticalStackLayout HorizontalOptions="Center">
+        <VerticalStackLayout HorizontalOptions="Center" Spacing="15">
 
 
 
@@ -91,6 +91,14 @@
                     </DataTemplate>
                 </syncf:SfSegmentedControl.SegmentTemplate>
             </syncf:SfSegmentedControl>
+
+            <mdc:TextField
+                x:Name="MassValueText"
+                InputType="SingleLine"
+                LabelText="Valeure de la Masse"
+                SupportingText=""
+                Text="{Binding MassValue, Mode=TwoWay}" />
+
             <mdc:Button
                 x:Name="ClassifyBtn"
                 Command="{Binding DetermineNumberOfEchelonsCommand}"
@@ -98,7 +106,14 @@
                 RightClicked="ClassifyBtn_RightClicked"
                 Text="Classer" />
 
-
+            <mdc:Card>
+                <mdc:Card.Content>
+                    <Label
+                        x:Name="ClassLabel"
+                        FontSize="24"
+                        Text="{Binding CurrentBalance.ClassNumber, Mode=TwoWay}" />
+                </mdc:Card.Content>
+            </mdc:Card>
         </VerticalStackLayout>
 
         <syncf:SfPopup x:Name="ManualClassificationPopup" HeaderTitle="Classifier la balance">

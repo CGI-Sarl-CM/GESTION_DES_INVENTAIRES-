@@ -3,6 +3,7 @@ using CGIERPData.ModelViews.LaboratoryDepartment;
 using CommunityToolkit.Maui.Extensions;
 using CommunityToolkit.Mvvm.Input;
 using DynamicData;
+using Realms.Exceptions;
 using Syncfusion.Maui.Toolkit.Popup;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,9 @@ public partial class LaboratoryViewModel : BaseViewModel
 
     [ObservableProperty]
     public partial string EchelonVerif { get; set; } 
+
+    [ObservableProperty]
+    public partial decimal MassValue { get; set; } 
 
 
 
@@ -78,10 +82,133 @@ public partial class LaboratoryViewModel : BaseViewModel
 
             decimal numberOfEchelons = maxWeightInG / echVerifInG;
             AutoClassifyBalance(numberOfEchelons, maxWeightInG, echVerifInG);
+            CalculateMinWeight(CurrentBalance.ClassNumber, echVerifInG, numberOfEchelons);
+            CalculerEMT(MassValue, echVerifInG);
         }
         catch (Exception ex)
         {
             await Shell.Current.DisplayAlertAsync("Erreur", ex.Message, "OK");
+        }
+    }
+
+    private void CalculerEMT(decimal massValue, decimal echVerifInG)
+    {
+        switch (SelectedVerificationsType)
+        {
+
+            case "Verification Primitive":
+                switch (CurrentBalance.ClassNumber)
+                {
+                    case 1:
+                        if ((0 <= (massValue / echVerifInG)) && ((massValue / echVerifInG) <= 50000))
+                        {
+                            CurrentBalance.EMT = (decimal)0.5 * echVerifInG;
+                        }
+                        if ((50000 <= (massValue / echVerifInG)) && ((massValue / echVerifInG) <= 200000))
+                        {
+                            CurrentBalance.EMT = (decimal)1.0 * echVerifInG;
+
+                        }
+                        if ((0 <= (massValue / echVerifInG)) && ((massValue / echVerifInG) <= 50000))
+                        {
+                            CurrentBalance.EMT = (decimal)1.5 * echVerifInG;
+
+                        }
+                        break;
+                        
+                    case 2:
+                        if ((0 <= (massValue / echVerifInG)) && ((massValue / echVerifInG) <= 5000))
+                        {
+                            CurrentBalance.EMT = (decimal)0.5 * echVerifInG;
+                        }
+                        if ((5000 <= (massValue / echVerifInG)) && ((massValue / echVerifInG) <= 20000))
+                        {
+                            CurrentBalance.EMT = (decimal)1.0 * echVerifInG;
+
+                        }
+                        if ((20000 <= (massValue / echVerifInG)) && ((massValue / echVerifInG) <= 100000))
+                        {
+                            CurrentBalance.EMT = (decimal)1.5 * echVerifInG;
+
+                        }
+                        break;
+                        
+                    case 3:
+                        if ((0 <= (massValue / echVerifInG)) && ((massValue / echVerifInG) <= 50000))
+                        {
+                            CurrentBalance.EMT = (decimal)0.5 * echVerifInG;
+                        }
+                        if ((50000 <= (massValue / echVerifInG)) && ((massValue / echVerifInG) <= 200000))
+                        {
+                            CurrentBalance.EMT = (decimal)1.0 * echVerifInG;
+
+                        }
+                        if ((0 <= (massValue / echVerifInG)) && ((massValue / echVerifInG) <= 50000))
+                        {
+                            CurrentBalance.EMT = (decimal)1.5 * echVerifInG;
+
+                        }
+                        break;
+                        
+                    case 4:
+                        if ((0 <= (massValue / echVerifInG)) && ((massValue / echVerifInG) <= 50000))
+                        {
+                            CurrentBalance.EMT = (decimal)0.5 * echVerifInG;
+                        }
+                        if ((50000 <= (massValue / echVerifInG)) && ((massValue / echVerifInG) <= 200000))
+                        {
+                            CurrentBalance.EMT = (decimal)1.0 * echVerifInG;
+
+                        }
+                        if ((0 <= (massValue / echVerifInG)) && ((massValue / echVerifInG) <= 50000))
+                        {
+                            CurrentBalance.EMT = (decimal)1.5 * echVerifInG;
+
+                        }
+                        break;
+
+                    default:
+                        break;
+                }
+               
+                break;
+
+            case "Verification Periodique":
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void CalculateMinWeight(int classNumber, decimal echVerifInG, decimal numbOfEchelons )
+    {
+        switch (CurrentBalance.ClassNumber)
+        {
+            case 1:
+                CurrentBalance.MinimumWeight = 100 * echVerifInG;
+                break;
+            case 2:
+                if ((echVerifInG is >= (decimal)0.001 and <= (decimal)0.05) && (100 <= numbOfEchelons) && (numbOfEchelons <= 100000))
+                {
+                    CurrentBalance.MinimumWeight = 20 * echVerifInG;
+                }
+                else
+                {
+                    CurrentBalance.MinimumWeight = 50 * echVerifInG;
+                }
+
+                
+                break;
+            case 3:
+                CurrentBalance.MinimumWeight = 20 * echVerifInG;
+
+                break;
+            case 4:
+                CurrentBalance.MinimumWeight = 10 * echVerifInG;
+
+                break;
+            default:
+                break;
         }
     }
 

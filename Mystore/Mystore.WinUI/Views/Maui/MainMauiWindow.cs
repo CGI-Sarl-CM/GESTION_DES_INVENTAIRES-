@@ -22,8 +22,7 @@ public partial class MainMauiWindow : Microsoft.Maui.Controls.Window
         MyViewModel = vm;
         AppUtil = appUtil;
         BindingContext = vm;
-        this.Height = 500;
-        this.Width = 600;
+        
     }
     public Microsoft.Maui.Controls.Page CurrentPage => this.Page as Microsoft.Maui.Controls.Page ?? throw new InvalidOperationException("Current Page is not a valid Page.");
 
@@ -94,9 +93,8 @@ public partial class MainMauiWindow : Microsoft.Maui.Controls.Window
         base.OnCreated();
         var nativeWindow = PlatUtils.GetNativeWindowFromMAUIWindow(this);
         PlatUtils.MoveAndResizeCenter(nativeWindow, new Windows.Graphics.SizeInt32(600, 766));
-        MinimumHeight = 766;
-        MaximumWidth = 600;
-        MinimumWidth = 600;
+       
+
 
 #if DEBUG
         this.Title = $"{MyViewModel?.AppTitle} Debug {BaseViewModel.CurrentAppVersion}  {BaseViewModel.CurrentAppStage}";

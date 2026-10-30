@@ -22,8 +22,7 @@ public class AppUtil : IAppUtil
 
     public Shell GetShell()
     {
-        return new MainShell(BaseVMWin)
-        ;
+        return new MainShell(BaseVMWin);
     }
     public Microsoft.Maui.Controls.Window LoadWindow()
     {

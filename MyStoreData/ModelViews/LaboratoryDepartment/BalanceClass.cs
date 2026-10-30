@@ -8,10 +8,13 @@ namespace CGIERPData.ModelViews.LaboratoryDepartment;
 public partial class BalanceClass : ObservableObject
 {
 
+    [ObservableProperty]
+    public partial int ClassNumber { get; set; }
 
-    public int ClassNumber { get; set; }
+    [ObservableProperty]
+    public partial decimal MinimumWeight { get; set; }
     public bool EstEnVerificationPeriodique { get; set; }
-    public bool EstEnVerificationPrimitive { get; set; }
+
     public decimal EchelonNumbers { get; set; }
     public decimal EchelonVerif { get; set; }
     public decimal EMT { get; set; }

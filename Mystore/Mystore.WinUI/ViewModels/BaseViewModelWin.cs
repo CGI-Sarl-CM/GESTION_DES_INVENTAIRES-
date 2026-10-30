@@ -15,5 +15,5 @@ public partial class BaseViewModelWin : BaseViewModel
     }
     public Window? MainMAUIWindow { get; set; }
     [ObservableProperty]
-    public partial string AppTitle { get; set; } 
+    public partial string AppTitle { get; set; } = "CGI ERP";
 }
