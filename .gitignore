@@ -15,3 +15,7 @@
 /CGIERP.Utilities/obj
 /CGIERP.Utilities/bin/Debug/net9.0
 /Mystore/Mystore/bin/Debug
+/Mystore/Mystore/bin/Release
+/CGIERP.Utilities/bin/Release/net9.0
+/Mystore/Mystore.WinUI/bin/Release/net10.0-windows10.0.19041.0/win-x64
+/Mystore/Mystore.Droid/bin/Release/net10.0-android/android-arm64
