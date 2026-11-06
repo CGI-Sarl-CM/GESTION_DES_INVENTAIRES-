@@ -18,9 +18,7 @@
                 TextColor="#2C3E50" />
 
             <mdc:Card Padding="15">
-                <mdc:Card.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="Button_Clicked" />
-                </mdc:Card.GestureRecognizers>
+
                 <Grid ColumnDefinitions="Auto, *">
                     <Label
                         Grid.Column="0"
@@ -29,11 +27,12 @@
                         Text="⚖️"
                         VerticalOptions="Center" />
                     <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
-                        <Label
-                            FontAttributes="Bold"
-                            FontSize="16"
-                            Text="Vérification des Balances"
-                            TextColor="#34495E" />
+                        <mdc:Button
+                           
+                            FontColor="#34495E"
+                            FontSize="16" Clicked="Button_Clicked"
+                            FontWeight="Bold"
+                            Text="Vérification des Balances" />
                         <Label
                             FontSize="12"
                             Text="Calcul de l'EMT, Portée Min, et Conformité"

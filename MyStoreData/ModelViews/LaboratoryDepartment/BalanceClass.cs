@@ -15,9 +15,12 @@ public partial class BalanceClass : ObservableObject
     public partial decimal MinimumWeight { get; set; }
     public bool EstEnVerificationPeriodique { get; set; }
 
-    public decimal EchelonNumbers { get; set; }
+
+    [ObservableProperty]
+    public partial decimal EchelonNumbers { get; set; }
     public decimal EchelonVerif { get; set; }
-    public decimal EMT { get; set; }
+    [ObservableProperty]
+    public partial decimal EMT { get; set; }
     public decimal MaximumWeight { get; set; }
     public string? Status { get; set; }
 

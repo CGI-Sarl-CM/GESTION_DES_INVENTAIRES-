@@ -1,4 +1,7 @@
 <Solution>
+  <Project Path="../../MaterialColorUtilities/MaterialColorUtilities.SourceGenerators/MaterialColorUtilities.SourceGenerators.csproj" />
+  <Project Path="../../MaterialColorUtilities/MaterialColorUtilities/MaterialColorUtilities.csproj" />
+  <Project Path="../../YBTopaz8/Material.Components.Maui/Material.Components.Maui/Material.Components.Maui.csproj" />
   <Project Path="CGIERP.Utilities/CGIERP.Utilities.csproj" Id="1b082c1f-4b04-44fc-91aa-1f4c46abe98d" />
   <Project Path="Mystore/Mystore.Droid/CGIERP.Droid.csproj">
     <Deploy />

@@ -1,3 +1,4 @@
+
 namespace CGIERP.WinUI.Views.Maui.LaboratoryViews;
 
 public partial class ClassifyBalance : ContentPage
@@ -87,13 +88,15 @@ public partial class ClassifyBalance : ContentPage
 
     private void ManualClassificationCmbBox_SelectedChanged(object sender, SelectedItemChangedEventArgs e)
     {
-        if (e.SelectedItem is Material.Components.Maui.MenuItem selItem)
-        {
-            if (int.TryParse(selItem.Text, out int newClass))
-            {
-                MyViewModel.CurrentBalance.ClassNumber = newClass;
-            }
-        }
+        
+        //ComboBox send = (ComboBox)sender;
+        //if (e.SelectedItem is Material.Components.Maui.MenuItem selItem)
+        //{
+        //    if (int.TryParse(selItem.Text, out int newClass))
+        //    {
+        //        MyViewModel.CurrentBalance.ClassNumber = newClass;
+        //    }
+        //}
     }
 
     private void ClassifyBtn_LongPressed(object sender, TouchEventArgs e)
@@ -120,6 +123,14 @@ public partial class ClassifyBalance : ContentPage
         if (e.NewIndex is int selItemIndx)
         {
             MyViewModel.SelectedEchelonUnit = MyViewModel.MassUnitsCollection[selItemIndx];
+        }
+    }
+
+    private void MassApplied_SelectionChanged(object sender, Syncfusion.Maui.Toolkit.SegmentedControl.SelectionChangedEventArgs e)
+    {
+        if (e.NewIndex is int selItemIndx)
+        {
+            MyViewModel.SelectedAppliedMassUnit = MyViewModel.MassUnitsCollection[selItemIndx];
         }
     }
 }

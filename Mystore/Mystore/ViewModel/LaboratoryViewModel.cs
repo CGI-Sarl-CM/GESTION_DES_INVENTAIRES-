@@ -28,6 +28,12 @@ public partial class LaboratoryViewModel : BaseViewModel
     public partial string SelectedEchelonUnit { get; set; }
 
     [ObservableProperty]
+    public partial string SelectedAppliedMassUnit { get; set; }
+
+    //[ObservableProperty]
+    //public partial string SelectedEchelonUnit { get; set; }
+
+    [ObservableProperty]
     public partial string MaximumWeight { get; set; }
 
     [ObservableProperty]
@@ -54,7 +60,7 @@ public partial class LaboratoryViewModel : BaseViewModel
         VerificationsTypeCollection = new();
         MassUnitsCollection = new();
         VerificationsTypeCollection.AddRange(new List<string> { "Verification Primitive", "Verification Periodique" });
-        MassUnitsCollection.AddRange(new List<string> { "mg", "g", "kg" });
+        MassUnitsCollection.AddRange(new List<string> { "mg", "g", "kg", "T" });
 
         SelectedEchelonUnit = MassUnitsCollection[1];
         SelectedPMaxUnit = MassUnitsCollection[1];
@@ -83,6 +89,7 @@ public partial class LaboratoryViewModel : BaseViewModel
             {
                 "mg" => maxWeightInG / 1000m,
                 "kg" => maxWeightInG * 1000m,
+                "t" => maxWeightInG * 1000000m,
                 _ => maxWeightInG
             };
 
@@ -90,11 +97,12 @@ public partial class LaboratoryViewModel : BaseViewModel
             {
                 "mg" => echVerifInG / 1000m,
                 "kg" => echVerifInG * 1000m,
+                "t" => echVerifInG * 1000000m,
                 _ => echVerifInG
             };
 
             decimal numberOfEchelons = maxWeightInG / echVerifInG;
-
+            CurrentBalance.EchelonNumbers = numberOfEchelons;
             // 1. Classify
             AutoClassifyBalance(numberOfEchelons, maxWeightInG, echVerifInG);
 

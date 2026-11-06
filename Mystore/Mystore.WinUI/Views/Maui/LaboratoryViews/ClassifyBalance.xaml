@@ -28,8 +28,9 @@
                             <mdc:TextField
                                 x:Name="MaxWeightTxt"
                                 Grid.Column="0"
-                                BackgroundColor="#FFFFFF"
                                 LabelText="Portée Max (Max)"
+                                OutlineColor="DarkSlateBlue"
+                                OutlineWidth="1"
                                 SupportingText=""
                                 Text="{Binding MaximumWeight, Mode=TwoWay}" />
                             <syncf:SfSegmentedControl
@@ -42,11 +43,53 @@
 
                         <!--  Echelon Row  -->
                         <Grid ColumnDefinitions="*, 300" ColumnSpacing="10">
-                            <syncf:SfNumericEntry
+                            <mdc:TextField
                                 x:Name="Echelon"
                                 Grid.Column="0"
-                                Placeholder="Échelon (e / d)"
-                                Value="{Binding EchelonVerif, Mode=TwoWay}" />
+                                LabelText="Échelon (e / d)"
+                                OutlineColor="DarkSlateBlue"
+                                OutlineWidth="1"
+                                SupportingText=""
+                                Text="{Binding EchelonVerif, Mode=TwoWay}" />
+                            <syncf:SfSegmentedControl
+                                Grid.Column="1"
+                                HeightRequest="56"
+                                ItemsSource="{Binding MassUnitsCollection}"
+                                SelectedIndex="1"
+                                SelectionChanged="MassSegControlEchelon_SelectionChanged" />
+                        </Grid>
+                        <Grid ColumnDefinitions="*, 300" ColumnSpacing="10">
+                            <mdc:TextField
+                                x:Name="MassValueText"
+                                Grid.Column="0"
+                                LabelText="Masse Appliquée (g)"
+                                OutlineColor="DarkSlateBlue"
+                                OutlineWidth="1"
+                                Text="{Binding MassValue, Mode=TwoWay}" />
+
+                            <syncf:SfSegmentedControl
+                                Grid.Column="1"
+                                HeightRequest="56"
+                                ItemsSource="{Binding MassUnitsCollection}"
+                                SelectedIndex="1"
+                                SelectionChanged="MassSegControlEchelon_SelectionChanged" />
+                        </Grid>
+                        <Grid ColumnDefinitions="*, 300" ColumnSpacing="10">
+                            <mdc:TextField
+                                x:Name="MassValueText"
+                                Grid.Column="0"
+                                LabelText="Masse Appliquée (g)"
+                                OutlineColor="DarkSlateBlue"
+                                OutlineWidth="1"
+                                Text="{Binding MassValue, Mode=TwoWay}" />
+
+                            <mdc:TextField
+                                x:Name="ErrorValueText"
+                                Grid.Column="1"
+                                LabelText="Écart Observé (g)"
+                                OutlineColor="DarkSlateBlue"
+                                OutlineWidth="1"
+                                Text="{Binding ErrorValue, Mode=TwoWay}" />
                             <syncf:SfSegmentedControl
                                 Grid.Column="1"
                                 HeightRequest="56"
@@ -69,11 +112,10 @@
 
                         <syncf:SfSegmentedControl
                             x:Name="TypeOfVerification"
-                            BackgroundColor="#ffffff"
-                            HeightRequest="45"
                             ItemsSource="{Binding VerificationsTypeCollection}"
                             SelectedIndex="0"
-                            SelectionChanged="TypeOfVerification_SelectionChanged">
+                            SelectionChanged="TypeOfVerification_SelectionChanged"
+                            ShowSeparator="False">
                             <syncf:SfSegmentedControl.SegmentTemplate>
                                 <DataTemplate x:DataType="syncf:SfSegmentItem">
                                     <Label
@@ -100,21 +142,7 @@
                             </syncf:SfSegmentedControl.SegmentTemplate>
                         </syncf:SfSegmentedControl>
 
-                        <Grid ColumnDefinitions="*, *" ColumnSpacing="10">
-                            <mdc:TextField
-                                x:Name="MassValueText"
-                                Grid.Column="0"
-                                LabelText="Masse Appliquée (g)"
-                                SupportingText=""
-                                Text="{Binding MassValue, Mode=TwoWay}" />
-                            <mdc:TextField
-                                x:Name="ErrorValueText"
-                                Grid.Column="1"
-                                LabelText="Écart Observé (g)"
-                                OutlineWidth="2"
-                                SupportingText=""
-                                Text="{Binding ErrorValue, Mode=TwoWay}" />
-                        </Grid>
+                        <Grid ColumnDefinitions="*, *" ColumnSpacing="10" />
                     </VerticalStackLayout>
                 </mdc:Card>
 
@@ -152,7 +180,7 @@
                         <Grid
                             ColumnDefinitions="*, *"
                             ColumnSpacing="10"
-                            RowDefinitions="Auto, Auto"
+                            RowDefinitions="Auto, Auto, auto"
                             RowSpacing="15">
                             <!--  Class  -->
                             <VerticalStackLayout Grid.Row="0" Grid.Column="0">
@@ -226,6 +254,22 @@
                                     </Label.Triggers>
                                 </Label>
                             </VerticalStackLayout>
+
+                            <VerticalStackLayout Grid.Row="2" Grid.ColumnSpan="3">
+                                <Label
+                                    FontSize="12"
+                                    HorizontalOptions="Center"
+                                    Text="Nombre d'Echelons"
+                                    TextColor="#7F8C8D" />
+                                <Label
+                                    Grid.Row="2"
+                                    Grid.RowSpan="3"
+                                    FontAttributes="Bold"
+                                    FontSize="22"
+                                    HorizontalOptions="Center"
+                                    Text="{Binding CurrentBalance.EchelonNumbers}"
+                                    TextColor="#2C3E50" />
+                            </VerticalStackLayout>
                         </Grid>
                     </VerticalStackLayout>
                 </mdc:Card>
@@ -239,9 +283,10 @@
                         <mdc:ComboBox
                             x:Name="ManualClassificationCmbBox"
                             LabelText="Choisir la classe"
+                            MenuBackgroundColor="{Binding BackgroundColor, Source={x:Reference ManualClassificationCmbBox}}"
                             SelectedChanged="ManualClassificationCmbBox_SelectedChanged">
                             <mdc:ComboBox.Items>
-                                <mdc:MenuItem Text="1" />
+                                <mdc:MenuItem BackgroundColor="Green" Text="1" />
                                 <mdc:MenuItem Text="2" />
                                 <mdc:MenuItem Text="3" />
                                 <mdc:MenuItem Text="4" />

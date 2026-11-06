@@ -13,8 +13,10 @@ public partial class LabOverView : ContentPage
     
 
 
-    private async void Button_Clicked(object sender, TappedEventArgs e)
+
+    private async void Button_Clicked(object sender, TouchEventArgs e)
     {
         await Shell.Current.GoToAsync(nameof(ClassifyBalance));
     }
+
 }

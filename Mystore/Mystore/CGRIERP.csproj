@@ -36,7 +36,7 @@
 
 	<ItemGroup>
 
-		<PackageReference Include="Material.Components.Maui" Version="0.3.0" />
+		<!--<PackageReference Include="Material.Components.Maui" Version="0.3.0" />-->
 
 		<PackageReference Include="Microsoft.Maui.Controls" Version="10.0.120" />
 		<PackageReference Include="SkiaSharp" Version="4.153.1" />
@@ -52,6 +52,9 @@
                                 
 	</ItemGroup>
 	<ItemGroup>
+		
+  <ProjectReference Include="..\..\..\..\YBTopaz8\Material.Components.Maui\Material.Components.Maui\Material.Components.Maui.csproj" />
+		
   <ProjectReference Include="..\..\CGIERP.Utilities\CGIERP.Utilities.csproj" />
   <ProjectReference Include="..\..\MyStoreData\CGIERPData.csproj" />
 </ItemGroup>

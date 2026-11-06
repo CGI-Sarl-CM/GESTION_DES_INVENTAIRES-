@@ -6,29 +6,91 @@
     xmlns:mdc="clr-namespace:Material.Components.Maui;assembly=Material.Components.Maui"
     xmlns:syncf="http://schemas.syncfusion.com/maui/toolkit"
     Title="CGI ERP"
-    BackgroundColor="Transparent">
-    <ScrollView>
-
-        <mdc:WrapLayout
-            HorizontalOptions="Center"
-            Orientation="Vertical"
-            VerticalSpacing="15">
-            <mdc:Card>
-                <mdc:Button
-                    x:Name="GoToQHSEBtn"
-                    Clicked="GoToQHSEBtn_Clicked"
-                    Text="QHSE" />
-            </mdc:Card>
-            <mdc:Card>
+    BackgroundColor="#F4F6F8">
+    <!--  Soft premium background  -->
+    <Grid RowDefinitions="*,auto">
 
 
-                <mdc:Button
-                    x:Name="GoToLaboratory"
-                    Clicked="GoToLaboratory_Clicked"
-                    Text="Laboratory" />
-            </mdc:Card>
 
-        </mdc:WrapLayout>
+        <ScrollView Grid.Row="0" Padding="20">
 
-    </ScrollView>
+            <VerticalStackLayout Spacing="25">
+
+
+
+                <!--  Header Section  -->
+                <VerticalStackLayout Spacing="5">
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="28"
+                        HorizontalOptions="Center"
+                        Text="Bienvenue dans CGI ERP"
+                        TextColor="#2C3E50" />
+                    <Label
+                        FontSize="14"
+                        HorizontalOptions="Center"
+                        Text="Sélectionnez un module pour commencer"
+                        TextColor="#7F8C8D" />
+                </VerticalStackLayout>
+
+                <!--  Dashboard Cards  -->
+                <Grid
+                    ColumnDefinitions="*, *"
+                    ColumnSpacing="15"
+                    RowDefinitions="Auto, Auto"
+                    RowSpacing="15">
+
+                    <!--  QHSE Card  -->
+                    <mdc:Card
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        HeightRequest="120">
+                        <mdc:Card.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="GoToQHSEBtn_Clicked" />
+                        </mdc:Card.GestureRecognizers>
+                        <VerticalStackLayout
+                            HorizontalOptions="Center"
+                            Spacing="10"
+                            VerticalOptions="Center">
+                            <Label
+                                FontSize="32"
+                                HorizontalOptions="Center"
+                                Text="🛡️" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="16"
+                                Text="QHSE"
+                                TextColor="#34495E" />
+                        </VerticalStackLayout>
+                    </mdc:Card>
+
+                    <!--  Laboratory Card  -->
+                    <mdc:Card
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        HeightRequest="120">
+                        <mdc:Card.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="GoToLaboratory_Clicked" />
+                        </mdc:Card.GestureRecognizers>
+                        <VerticalStackLayout
+                            HorizontalOptions="Center"
+                            Spacing="10"
+                            VerticalOptions="Center">
+                            <Label
+                                FontSize="32"
+                                HorizontalOptions="Center"
+                                Text="🔬" />
+                            <mdc:Button
+                                BackgroundColor="Transparent"
+                                Clicked="GoToLab_Clicked"
+                                FontColor="#34495E"
+                                FontSize="16"
+                                Text="Laboratoire" />
+                        </VerticalStackLayout>
+                    </mdc:Card>
+
+                </Grid>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
 </ContentPage>

@@ -15,4 +15,10 @@ public partial class LabOverView : ContentPage
     {
         await Shell.Current.GoToAsync(nameof(ClassifyBalance));
     }
+
+    private async void Button_Clicked(object sender, TappedEventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(ClassifyBalance));
+
+    }
 }

@@ -5,16 +5,44 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:mdc="clr-namespace:Material.Components.Maui;assembly=Material.Components.Maui"
     xmlns:syncf="http://schemas.syncfusion.com/maui/toolkit"
-    Title="Laboratoire">
+    Title="Département Laboratoire"
+    BackgroundColor="#F4F6F8">
 
-    <VerticalStackLayout Spacing="10">
-        <mdc:Card>
-            <mdc:Card.Content>
-                <mdc:Button
-                    BackgroundColor="Transparent"
-                    Clicked="Button_Clicked"
-                    Text="Classifier une Balance" />
-            </mdc:Card.Content>
-        </mdc:Card>
-    </VerticalStackLayout>
+    <ScrollView Padding="20">
+        <VerticalStackLayout Spacing="20">
+
+            <Label
+                FontAttributes="Bold"
+                FontSize="20"
+                Text="Opérations Métrologiques"
+                TextColor="#2C3E50" />
+
+            <mdc:Card Padding="15">
+
+                <mdc:Card.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Button_Clicked" />
+                </mdc:Card.GestureRecognizers>
+                <Grid ColumnDefinitions="Auto, *">
+                    <Label
+                        Grid.Column="0"
+                        Margin="0,0,15,0"
+                        FontSize="40"
+                        Text="⚖️"
+                        VerticalOptions="Center" />
+                    <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="16"
+                            Text="Vérification des Balances"
+                            TextColor="#34495E" />
+                        <Label
+                            FontSize="12"
+                            Text="Calcul de l'EMT, Portée Min, et Conformité"
+                            TextColor="#7F8C8D" />
+                    </VerticalStackLayout>
+                </Grid>
+            </mdc:Card>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
